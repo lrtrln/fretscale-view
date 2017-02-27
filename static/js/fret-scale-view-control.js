@@ -1,6 +1,6 @@
 /*
     Fret Scale View Controller
-    
+
     Requires jQuery 3.1.1
 */
 
@@ -65,7 +65,7 @@ var fretboard = function(tuning) {
             this.tuning.reverse();
         }
     }
-    
+
     this.render = function() {
         var p_count = pitches.length;
         var table = $('#fret-board');
@@ -85,7 +85,7 @@ var fretboard = function(tuning) {
         });
         this.render_markers(table, p_count);
     }
-    
+
     this.render_markers = function(table, p_count) {
         // Create the fret markers so we know where we are.
         var row = $('<tr></tr>');
@@ -97,7 +97,7 @@ var fretboard = function(tuning) {
         }
         table.append(row);
     }
-    
+
     // On init.
     this.tune(tuning);
 }
@@ -105,7 +105,7 @@ var fretboard = function(tuning) {
 
 var tuning_form = function(fretboard) {
     this.fretboard = fretboard;
-    
+
     this.add_string = function(selected) {
         var that = this;
         var select = $('<select></select>');
@@ -125,7 +125,7 @@ var tuning_form = function(fretboard) {
         $('#def-tuning > div').append(button);
         $('#def-tuning > div').append($('<br />'));
     }
-    
+
     this.remove_string = function(button) {
         var i = -1;
         $('#def-tuning div input[type="button"]').each( function(index) {
@@ -137,7 +137,7 @@ var tuning_form = function(fretboard) {
             button.remove();
         }
     }
-    
+
     this.render = function() {
         var that = this;
         $('#def-tuning-set').unbind('click');
@@ -148,7 +148,7 @@ var tuning_form = function(fretboard) {
             that.add_string(String(this));
         });
     }
-    
+
     this.set_tuning = function() {
         var tuning = [];
         $('#def-tuning div select').each( function() {
@@ -177,7 +177,7 @@ var key_settings = function() {
         });
         $('#def-key-root-set').click( function() { that.set_root(); });
     }
-    
+
     this.set_root = function() {
         var pitch = $('#def-key-root').val();
         var pitch_id = pitches.indexOf(pitch);
